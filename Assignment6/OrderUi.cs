@@ -22,20 +22,43 @@ namespace Assignment6
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            string price = "";
+            decimal black = 120;
+            decimal cold = 100;
+            decimal hot = 90;
+            decimal regular = 80;
+            if (itemComboBox.Text == "Black")
+            {
+                price = (black * Decimal.Parse(quantityTextBox.Text)).ToString();
+            }
+            else if (itemComboBox.Text == "Cold")
+            {
+                price = (cold * Decimal.Parse(quantityTextBox.Text)).ToString();
+            }
+            else if (itemComboBox.Text == "Hot")
+            {
+                price = (hot * Decimal.Parse(quantityTextBox.Text)).ToString();
+            }
+            else if (itemComboBox.Text == "Regular")
+            {
+                price = (regular * Decimal.Parse(quantityTextBox.Text)).ToString();
+            }
+            else if (itemComboBox.Text == "Spacial")
+            {
+                price = (regular * Decimal.Parse(quantityTextBox.Text)).ToString();
+            }
+            priceTextBox.Text = price;
+
             //Mandatory
             if (String.IsNullOrEmpty(customerNameTextBox.Text))
             {
                 MessageBox.Show("Customer Name can not be Empty!!");
                 return;
             }
-            if (String.IsNullOrEmpty(itemNameTextBox.Text))
+           
+            if (String.IsNullOrEmpty(quantityTextBox.Text))
             {
-                MessageBox.Show("Item can not be Empty!!");
-                return;
-            }
-            if (String.IsNullOrEmpty(priceTextBox.Text))
-            {
-                MessageBox.Show("Price can not be Empty!!");
+                MessageBox.Show("Quantity can not be Empty!!");
                 return;
             }
 
@@ -47,7 +70,8 @@ namespace Assignment6
             //}
 
             //Add/Insert
-            if (_orderManager.Add(customerNameTextBox.Text,itemNameTextBox.Text, Convert.ToDouble(priceTextBox.Text),Convert.ToDouble(quantityTextBox.Text)))
+                
+            if (_orderManager.Add(customerNameTextBox.Text,itemComboBox.Text,Convert.ToDouble(priceTextBox.Text),Convert.ToDouble(quantityTextBox.Text)))
             {
                 MessageBox.Show("Saved");
             }
@@ -57,7 +81,6 @@ namespace Assignment6
             }
             idTextBox.Clear();
             customerNameTextBox.Clear();
-            itemNameTextBox.Clear();
             priceTextBox.Clear();
             quantityTextBox.Clear();
 
@@ -100,13 +123,40 @@ namespace Assignment6
             showDataGridView.DataSource = _orderManager.Display();
             idTextBox.Clear();
             customerNameTextBox.Clear();
-            itemNameTextBox.Clear();
+            itemComboBox.Items.Clear();
             priceTextBox.Clear();
             quantityTextBox.Clear();
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
+            string price = "";
+            decimal black = 120;
+            decimal cold = 100;
+            decimal hot = 90;
+            decimal regular = 80;
+            int id;
+
+            if (itemComboBox.Text == "Black")
+            {
+                price = (black * Decimal.Parse(quantityTextBox.Text)).ToString();
+            }
+            else if (itemComboBox.Text == "Cold")
+            {
+                price = (cold * Decimal.Parse(quantityTextBox.Text)).ToString();
+            }
+            else if (itemComboBox.Text == "Hot")
+            {
+                price = (hot * Decimal.Parse(quantityTextBox.Text)).ToString();
+            }
+            else if (itemComboBox.Text == "Regular")
+            {
+                price = (regular * Decimal.Parse(quantityTextBox.Text)).ToString();
+            }
+            else if (itemComboBox.Text == "Spacial")
+            {
+                 price= (regular * Decimal.Parse(quantityTextBox.Text)).ToString();
+            }
 
             //Set Id as Mandatory
             if (String.IsNullOrEmpty(idTextBox.Text))
@@ -119,24 +169,17 @@ namespace Assignment6
                 MessageBox.Show("CustomerName Can not be Empty!!!");
                 return;
             }
-            if (String.IsNullOrEmpty(itemNameTextBox.Text))
-            {
-                MessageBox.Show("ItemName Can not be Empty!!!");
-                return;
-            }
+            priceTextBox.Text = price;
+
             //Set Price as Mandatory
-            if (String.IsNullOrEmpty(priceTextBox.Text))
-            {
-                MessageBox.Show("Price Can not be Empty!!!");
-                return;
-            }
+
             if (String.IsNullOrEmpty(quantityTextBox.Text))
             {
                 MessageBox.Show("Quantity Can not be Empty!!!");
                 return;
             }
 
-            if (_orderManager.Update(customerNameTextBox.Text,itemNameTextBox.Text, Convert.ToDouble(priceTextBox.Text),Convert.ToDouble(quantityTextBox.Text) ,Convert.ToInt32(idTextBox.Text)))
+            if (_orderManager.Update(customerNameTextBox.Text,itemComboBox.Text, Convert.ToDouble(priceTextBox.Text),Convert.ToDouble(quantityTextBox.Text) ,Convert.ToInt32(idTextBox.Text)))
             {
                 MessageBox.Show("Updated");
                 showDataGridView.DataSource = _orderManager.Display();
@@ -147,7 +190,7 @@ namespace Assignment6
             }
             idTextBox.Clear();
             customerNameTextBox.Clear();
-            itemNameTextBox.Clear();
+            itemComboBox.Items.Clear();
             priceTextBox.Clear();
             quantityTextBox.Clear();
 
@@ -155,8 +198,8 @@ namespace Assignment6
 
         private void serachButton_Click(object sender, EventArgs e)
         {
-            showDataGridView.DataSource = _orderManager.Search(itemNameTextBox.Text);
-            itemNameTextBox.Clear();
+            showDataGridView.DataSource = _orderManager.Search(itemComboBox.Text);
+            
         }
     }
 }

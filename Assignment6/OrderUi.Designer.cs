@@ -42,8 +42,8 @@
             this.updateButton = new System.Windows.Forms.Button();
             this.serachButton = new System.Windows.Forms.Button();
             this.showDataGridView = new System.Windows.Forms.DataGridView();
-            this.itemNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.itemComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             // 
             // priceTextBox
             // 
-            this.priceTextBox.Location = new System.Drawing.Point(116, 88);
+            this.priceTextBox.Location = new System.Drawing.Point(116, 131);
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(100, 20);
             this.priceTextBox.TabIndex = 14;
@@ -73,7 +73,7 @@
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
-            this.priceLabel.Location = new System.Drawing.Point(28, 95);
+            this.priceLabel.Location = new System.Drawing.Point(49, 138);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(31, 13);
             this.priceLabel.TabIndex = 15;
@@ -81,7 +81,7 @@
             // 
             // quantityTextBox
             // 
-            this.quantityTextBox.Location = new System.Drawing.Point(116, 114);
+            this.quantityTextBox.Location = new System.Drawing.Point(116, 95);
             this.quantityTextBox.Name = "quantityTextBox";
             this.quantityTextBox.Size = new System.Drawing.Size(100, 20);
             this.quantityTextBox.TabIndex = 16;
@@ -89,7 +89,7 @@
             // quantityLabel
             // 
             this.quantityLabel.AutoSize = true;
-            this.quantityLabel.Location = new System.Drawing.Point(28, 121);
+            this.quantityLabel.Location = new System.Drawing.Point(34, 98);
             this.quantityLabel.Name = "quantityLabel";
             this.quantityLabel.Size = new System.Drawing.Size(46, 13);
             this.quantityLabel.TabIndex = 17;
@@ -171,13 +171,6 @@
             this.showDataGridView.Size = new System.Drawing.Size(627, 151);
             this.showDataGridView.TabIndex = 25;
             // 
-            // itemNameTextBox
-            // 
-            this.itemNameTextBox.Location = new System.Drawing.Point(116, 62);
-            this.itemNameTextBox.Name = "itemNameTextBox";
-            this.itemNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.itemNameTextBox.TabIndex = 26;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -187,13 +180,26 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "ItemName";
             // 
+            // itemComboBox
+            // 
+            this.itemComboBox.FormattingEnabled = true;
+            this.itemComboBox.Items.AddRange(new object[] {
+            "Hot",
+            "Black",
+            "Regular",
+            "Cold"});
+            this.itemComboBox.Location = new System.Drawing.Point(116, 66);
+            this.itemComboBox.Name = "itemComboBox";
+            this.itemComboBox.Size = new System.Drawing.Size(121, 21);
+            this.itemComboBox.TabIndex = 28;
+            // 
             // OrderUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.itemComboBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.itemNameTextBox);
             this.Controls.Add(this.showDataGridView);
             this.Controls.Add(this.serachButton);
             this.Controls.Add(this.updateButton);
@@ -232,7 +238,7 @@
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button serachButton;
         private System.Windows.Forms.DataGridView showDataGridView;
-        private System.Windows.Forms.TextBox itemNameTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox itemComboBox;
     }
 }
